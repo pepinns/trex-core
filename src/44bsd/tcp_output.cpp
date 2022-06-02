@@ -110,11 +110,11 @@ static inline void tcp_pkt_update_len(CFlowTemplate *ftp,
             }
             if (tso_done){
                 /* in case of TSO the len is auto calculated */
-                ipv4->setTotalLength(20);
+                ipv4->setTotalLength(60);
                 tcp->setChecksumRaw(ftp->m_l4_pseudo_checksum);
             }else{
                 ipv4->setTotalLength(tlen);
-                tcp->setChecksumRaw(pkt_AddInetChecksumRaw(ftp->m_l4_pseudo_checksum ,PKT_NTOHS(tlen-20)));
+                tcp->setChecksumRaw(pkt_AddInetChecksumRaw(ftp->m_l4_pseudo_checksum ,PKT_NTOHS(tlen-60)));
             }
 
 

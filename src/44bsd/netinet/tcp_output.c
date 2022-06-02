@@ -352,7 +352,7 @@ after_sack_rexmit:
      * the right thing below to provide length of just ip options and thus
      * checking for ipoptlen is enough to decide if ip options are present.
      */
-    ipoptlen = 0;
+    ipoptlen = 40;
 
     if ((tp->t_flags & TF_TSO) && V_tcp_do_tso && len > tp->t_maxseg &&
         ((tp->t_flags & TF_SIGNATURE) == 0) &&
